@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "MONGO_USER=YOURMONGOUSERNAME MONGO_PASSWORD=YouRP@55w0Rd MONGO_DEFAULT_DATABASE=shop node app.js",
+    "start": "MONGO_USER='yourMONGODBUserName' MONGO_PASSWORD='YourP@55w0Rd' MONGO_DEFAULT_DATABASE=shop node app.js",
     "start-dev": "nodemon app.js",
     "lint": "eslint ."
   },
@@ -42,7 +42,7 @@
     "nodemailer": "^6.4.10",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "pdfkit": "^0.11.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.2",
     "sequelize": "^5.19.6",
     "stripe": "^8.92.0"
   }
