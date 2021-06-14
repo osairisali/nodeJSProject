@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
   auth: {
-    user: "910cdde1b9ee29",
-    pass: "7f4eec6504a06c",
+    user: `${process.env.NODEMAILE_USER}`,
+    pass: `${process.env.NODEMAILE_PASS}`,
   },
 });
 
@@ -87,7 +87,7 @@ exports.postSignUp = (req, res, next) => {
     })
     .then((result) => {
       const mailOptions = {
-        from: "test-mailtrap-d7b7a8@inbox.mailtrap.io",
+        from: `${process.env.NODEMAILER_ADDRESS}`,
         to: email,
         subject: "Nice Nodemailer test",
         text: "Hey there, it’s our first message sent with Nodemailer ",
@@ -289,7 +289,7 @@ exports.postResetPassword = (req, res, next) => {
             res.redirect("/login");
             transporter
               .sendMail({
-                from: "test-mailtrap-d7b7a8@inbox.mailtrap.io",
+                from: `${process.env.NODEMAILER_ADDRESS}`,
                 to: email,
                 subject: "Reset Token Email Test",
                 html: `
@@ -344,7 +344,7 @@ exports.getNewPassword = (req, res, next) => {
         token: token,
       });
 
-      return res.redirect("/reset");
+      // return res.redirect("/reset");
     })
     .catch((err) => {
       const errorLog = new Error(err);
